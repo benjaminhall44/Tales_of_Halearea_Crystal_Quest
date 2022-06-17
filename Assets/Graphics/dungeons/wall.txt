@@ -1,0 +1,11 @@
+AdxxBxxiCxviiiDxviExFxxiGxxviHAmcxxBxxviCxviiiDxviExFxxxviGxliAlxxxvBxviiiCixDxivExFxviiiGxxiiiHAdxxBxxxviiCixDxxiiExFxxviiGxxxiiHAmcmlBxlvCxixDxxiiiExFxxxviGxli
+
+AdBxxCxixDxvExFxxGxxv HAmBxxvCxixDxvExFxxxvGxl
+AxcBxviiiCxDxvExFxviiGxxii HAdBxxxviCxDxxExFxxviGxxxi
+HAmmBxlCxxDxxvExFxxxvGxl
+
+"statue":["statue",500,20,19,15,10,"melee",5,[20,25],False,[120,200]], 
+             "statueking":["statueking",1000,25,19,15,10,"melee",5,[35,40],True,[120,200]],
+             "mummy":["mummy",90,18,10,15,10,"melee",5,[17,22],False],
+             "pharoh":["pharoh",500,36,10,20,10,"melee",5,[26,31],True],
+             "sphinx":["sphinx",2000,40,20,25,10,"range",5,[35,40],True,[90,150]],
