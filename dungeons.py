@@ -1280,17 +1280,17 @@ enemylist = { "greengrobble":["greengrobble",20,5,0,2 * 3,10,"melee",1,[1,6],Fal
               "mushroom":["mushroom",50,6,1,8,10,"range",2,[2,7],False],
               "mushroomking":["mushroomking",120,10,1,8,10,"range",2,[10,15],True],
               "tree":["tree",40,8,10,7,10,"melee",2,[5,10],False],
-              "treeking":["treeking",100,10,10,7,10,"melee",2,[16,21],True],#end of balancing
+              "treeking":["treeking",100,10,10,7,10,"melee",2,[16,21],True],
               "treeworm":["treeworm",70,8,2,17,10,"melee",2,[5,10],False],
               "soldiertreeworm":["soldiertreeworm",50,14,2,8,10,"melee",2,[8,13],False],
               "treewormqueen":["treewormqueen",300,16,2,20,10,"range",2,[30,35],True],
               
               "swampdeadtree":["deadtree",60,10,4,7,10,"melee",3,[1,6],False],
               "swampdeadtreeking":["deadtreeking",300,13,4,20,10,"melee",3,[7,12],True],
-              "swampmushroom":["mushroom",75,9,1,8,10,"range",3,[1,6],False],
-              "swampmushroomking":["mushroomking",360,14,1,20,10,"range",3,[7,12],True],
-              "poisonmushroom":["poisonmushroom",70,7,1,8,10,"range",3,[1,6],False],
-              "poisonmushroomking":["poisonmushroomking",140,12,1,3,10,"range",3,[2,7],True],
+              "swampmushroom":["mushroom",75,7,1,8,10,"range",3,[1,6],False],
+              "swampmushroomking":["mushroomking",240,12,1,20,10,"range",3,[7,12],True],
+              "poisonmushroom":["poisonmushroom",70,9,1,8,10,"range",3,[1,6],False],
+              "poisonmushroomking":["poisonmushroomking",300,14,1,20,10,"range",3,[2,7],True],
               "snail":["snail",50,20,10,5,10,"melee",3,[1,6],False],
               "snailking":["snailking",100,20,10,5,10,"melee",3,[25,30],True],
               "mudmonster":["mudmonster",100,16,0,7,10,"melee",3,[1,6],False],
@@ -6268,7 +6268,12 @@ def shop(merchandise):
                     if c[0] >= bagmoneypos[0] - 21 or c[0] <= costpos[0] - 21:
                         coinblibs.remove(c)
                         if c[0] >= bagmoneypos[0] - 21:
-                            viewcoins += 1
+                            if c[4] == "copper":
+                                viewcoins += 1
+                            if c[4] == "silver":
+                                viewcoins += 10
+                            if c[4] == "gold":
+                                viewcoins += 100
                 if total > 0:
                     tick += 1
                     if tick == 3:
@@ -6295,15 +6300,15 @@ def shop(merchandise):
                         tick = 0
                         if total <= -100:
                             total += 100
-                            viewcoins += 100
+                            #viewcoins += 100
                             coinblibs.append([costpos[0] - 21.0,costpos[1] - 5.0,(costpos[0] - bagmoneypos[0]) / 30.0,(costpos[1] - bagmoneypos[1]) / 30.0,"gold"])
                         elif total <= -10:
                             total += 10
-                            viewcoins += 10
+                            #viewcoins += 10
                             coinblibs.append([costpos[0] - 21.0,costpos[1] - 5.0,(costpos[0] - bagmoneypos[0]) / 30.0,(costpos[1] - bagmoneypos[1]) / 30.0,"silver"])
                         else:
                             total += 1
-                            viewcoins += 1
+                            #viewcoins += 1
                             coinblibs.append([costpos[0] - 21.0,costpos[1] - 5.0,(costpos[0] - bagmoneypos[0]) / 30.0,(costpos[1] - bagmoneypos[1]) / 30.0,"copper"])
                 if animatecoin:
                     animateshop(merchandise,selected,select,buy,panel,shelf,coinblibs,viewcoins)
