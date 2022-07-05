@@ -1096,6 +1096,14 @@ class city:
                         screenup = False
                     if event.type == pygame.MOUSEMOTION:
                         mouseposition = event.pos[:]
+        screen.blit(pygame.image.load("assets/graphics/city/%s.png" % self.name),[0,0])
+        for d in self.people:
+            if quests[d.value] == False:
+                if mouseposition[0] > d.position[0] and mouseposition[0] < d.position[0] + d.size[0] and mouseposition[1] > d.position[1] and mouseposition[1] < d.position[1] + d.size[1]:
+                    screen.blit(pygame.transform.flip(pygame.image.load("assets/graphics/city/%sglow.png" % d.name),d.facing,False),d.position)
+                else:
+                    screen.blit(pygame.transform.flip(pygame.image.load("assets/graphics/city/%s.png" % d.name),d.facing,False),d.position)
+        pygame.display.flip()
         visit = True
         while visit:
             for event in pygame.event.get():
@@ -4155,7 +4163,7 @@ dungeons = [
         (-3,0):room((-3,0),"battle",[[1,0],[-1,0]],["darkguard","darkguard","darkguard","darkguard"]),
         (-2,0):room((-2,0),"battle",[[1,0],[-1,0]],["darkguard","darkguard","darkguard","darkguard"]),
         (-1,0):room((-1,0),"battle",[[-1,0],[0,-1]],["darkguard","darkguard","darkguard","darkguard"]),
-        (0,0):room((0,0),"door",[[0,-1],[0,-8]],None),
+        (0,0):room((0,0),"door",[[0,-1]],None),
         (1,0):room((1,0),"battle",[[1,0],[0,-1]],["darkguard","darkguard","darkguard","darkguard"]),
         (2,0):room((2,0),"battle",[[1,0],[-1,0]],["darkguard","darkguard","darkguard","darkguard"]),
         (3,0):room((3,0),"battle",[[1,0],[-1,0]],["darkguard","darkguard","darkguard","darkguard"]),
